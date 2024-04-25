@@ -68,6 +68,7 @@ exports.getStream = async (req, res) => {
         res.headers["content-type"] = mime.lookup(ext);
         res.headers["Cache-control"] = "public, max-age=31536000, immutable";
         res.headers["Access-Control-Allow-Origin"] = "*";
+        res.headers["X-Auth-API-Key"] = `${slug}-${item}`;
       })
       .pipe(res);
   } catch (err) {
